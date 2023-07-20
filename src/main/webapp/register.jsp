@@ -10,12 +10,10 @@
 <body>
 
 <div>
-<h1>Employee Register Form</h1>
+<h1>Register Form</h1>
 <form action="register" method="post">
-<label>First Name</label><br/>
-<input type ="text" name= "firstname" placeholder="First Name"/><br/>
-<label>Last Name</label><br/>
-<input type ="text" name= "lastname" placeholder="Last Name"/><br/>
+<label>Name</label><br/>
+<input type ="text" name= "name" placeholder="Name"/><br/>
 <label>Email</label><br/>
 <input type ="email" name= "email" placeholder="Your Email"/><br/>
 <label>Password</label><br/>

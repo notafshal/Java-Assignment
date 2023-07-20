@@ -11,23 +11,26 @@ import com.internsaathi.model.Datafile;
 
 public class DatafileDao {
 public int registerInfo(Datafile save) throws Exception{
-	String INSERT_USERS_SQL = "INSERT INTO datatable"+"(id, first_name, last_name, email, password,  contact) VALUES (?, ?, ?, ?, ?,?);";
+	String INSERT_USERS_SQL = "INSERT INTO datatable( name, email, password,  contact) VALUES ( ?, ?, ?,?);";
 
 	int result =0;
 	
-	Class.forName("com.mysql.jdbc.Driver");
-	try(
-		Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/datatable","root","afshal123");
-		
-		
-		PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)){
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	String Url="jdbc:mysql://localhost:3306/savedata";
 	
-	    preparedStatement.setInt(1, 1);
-	    preparedStatement.setString(2, save.getFirstname());
-	    preparedStatement.setString(3, save.getLastname());
-	    preparedStatement.setString(4, save.getEmail());
-	    preparedStatement.setString(5, save.getPassword());
-	    preparedStatement.setString(6, save.getContact());
+			try(
+		
+		Connection con=DriverManager.getConnection(Url,"root","afshal123");
+		
+		
+		
+		PreparedStatement preparedStatement = con.prepareStatement(INSERT_USERS_SQL)){
+
+
+	    preparedStatement.setString(1, save.getName());
+	    preparedStatement.setString(2, save.getEmail());
+	    preparedStatement.setString(3, save.getPassword());
+	    preparedStatement.setString(4, save.getContact());
 	    
 		System.out.println(preparedStatement);
 		 

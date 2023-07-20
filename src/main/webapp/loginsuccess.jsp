@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login Success</title>
+<title>HomePage</title>
 </head>
 <body>
+<a href ="login.jsp">Logout</a>
 <h1>Login success</h1>
+
 </body>
 </html>

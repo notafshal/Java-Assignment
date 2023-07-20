@@ -12,10 +12,10 @@ public class LoginDao {
 // to check if login details are in database or not
 	public boolean validate (Datafile datafile) throws Exception{
 		boolean status = false;
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		try(
-				Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/datatable","root","afshal123");
-				PreparedStatement  preparedStatement = connection.prepareStatement
+				Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/savedata","root","afshal123");
+				PreparedStatement  preparedStatement = con.prepareStatement
 						("select * from datatable where email =? and password =?")){
 			preparedStatement.setString(1,  datafile.getEmail());
 			preparedStatement.setString(2, datafile.getPassword());

@@ -1,23 +1,19 @@
 package com.internsaathi.model;
 
+import java.util.Base64;
+
 public class Datafile {
-private String firstname;
-private String lastname;
+private String name;
 private String email;
 private String password;
 private String contact;
 
-public String getFirstname() {
-	return firstname;
+
+public String getName() {
+	return name;
 }
-public void setFirstname(String firstname) {
-	this.firstname = firstname;
-}
-public String getLastname() {
-	return lastname;
-}
-public void setLastname(String lastname) {
-	this.lastname = lastname;
+public void setName(String name) {
+	this.name = name;
 }
 public String getEmail() {
 	return email;
@@ -29,6 +25,7 @@ public String getPassword() {
 	return password;
 }
 public void setPassword(String password) {
+	
 	this.password = password;
 }
 public String getContact() {
@@ -37,5 +34,6 @@ public String getContact() {
 public void setContact(String contact) {
 	this.contact = contact;
 }
+
 
 }

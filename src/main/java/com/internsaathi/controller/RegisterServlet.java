@@ -1,7 +1,6 @@
 package com.internsaathi.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,15 +20,14 @@ public class RegisterServlet extends HttpServlet {
        
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String firstName = request.getParameter("firstName");
-		String lastName = request.getParameter("lastName");
+		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String contact = request.getParameter("contact");
 		
 		Datafile save = new Datafile();
-		save.setFirstname(firstName);
-		save.setLastname(lastName);
+	
+		save.setName(name);
 		save.setEmail(email);
 		save.setPassword(password);
 		save.setContact(contact);
@@ -41,7 +39,7 @@ public class RegisterServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		  RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/details.jsp");
+		  RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 	      dispatcher.forward(request, response);
 	}
 	}
