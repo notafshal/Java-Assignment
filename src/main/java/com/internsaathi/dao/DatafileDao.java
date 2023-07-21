@@ -5,13 +5,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+
 import com.internsaathi.model.Datafile;
 
 //JDBC code to connect to MYSQL database
 
 public class DatafileDao {
 public int registerInfo(Datafile save) throws Exception{
-	String INSERT_USERS_SQL = "INSERT INTO datatable( name, email, password,  contact) VALUES ( ?, ?, ?,?);";
+	String INSERT_USERS_SQL = "INSERT INTO datatable( name, email, password,  contact) VALUES ( ?, ?,?,?);";
 
 	int result =0;
 	

@@ -1,6 +1,7 @@
 package com.internsaathi.controller;
 
 import java.io.IOException;
+import java.util.Base64;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.internsaathi.dao.*;
 import com.internsaathi.model.Datafile;
+
 
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
@@ -24,22 +26,29 @@ public class RegisterServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String contact = request.getParameter("contact");
+		String encryptedPassword =encryptPassword(password);
 		
 		Datafile save = new Datafile();
 	
 		save.setName(name);
 		save.setEmail(email);
-		save.setPassword(password);
+		save.setPassword(encryptedPassword);
 		save.setContact(contact);
 		
-
+		
 		try{
 			datafileDao.registerInfo(save);
 ;		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		  RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 	      dispatcher.forward(request, response);
 	}
-	}
+	private static String encryptPassword(String password) {
+	       byte[] encodedBytes = Base64.getEncoder().encode(password.getBytes());
+	        return new String(encodedBytes);
+	    }
+}
+
+
+

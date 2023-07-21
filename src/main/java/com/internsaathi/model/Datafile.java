@@ -1,6 +1,5 @@
 package com.internsaathi.model;
 
-import java.util.Base64;
 
 public class Datafile {
 private String name;
@@ -37,3 +36,5 @@ public void setContact(String contact) {
 
 
 }
+
+
