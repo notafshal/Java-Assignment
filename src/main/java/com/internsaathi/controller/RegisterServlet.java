@@ -23,6 +23,7 @@ public class RegisterServlet extends HttpServlet {
        
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("herer");
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
@@ -30,7 +31,7 @@ public class RegisterServlet extends HttpServlet {
 		
 		Encoder encoder = Base64.getEncoder();
 		String encodeed=encoder.encodeToString(password.getBytes());
-		
+		System.out.println(encodeed);
 		Datafile save = new Datafile();
 	
 		save.setName(name);

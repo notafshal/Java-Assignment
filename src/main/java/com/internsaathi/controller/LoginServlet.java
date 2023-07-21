@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Base64;
 import java.util.Base64.Decoder;
+import java.util.Base64.Encoder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,19 +22,27 @@ public class LoginServlet extends HttpServlet {
        private LoginDao loginDao= new LoginDao();
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("herer");
 		String email =request.getParameter("email");
 		String password = request.getParameter("password");
 		Datafile datafile = new Datafile();
-		datafile.setEmail(email);
-		datafile.setPassword(password);
+		
 		PrintWriter out =response.getWriter();
+		
+		Encoder encoder = Base64.getEncoder();
+		String encodeed=encoder.encodeToString(password.getBytes());
+		System.out.println(encodeed);
+		datafile.setEmail(email);
+		datafile.setPassword(encodeed);
+	
 		try {
 			if(loginDao.validate(datafile)) {
-				Decoder decoder=Base64.getDecoder();
-				byte[] bytes = decoder.decode(password);
+			
 				response.sendRedirect("loginsuccess.jsp");
 			}else {
-				out.print("<h4> Invalid Email or Password</h4>");
+				out.print("<h4> Ivalid Email or Password encoded</h4>"+encodeed);
+				out.print(encodeed);
+out.println(email);
 				RequestDispatcher rd =request.getRequestDispatcher("login.jsp");
 				rd.include(request, response);
 			}

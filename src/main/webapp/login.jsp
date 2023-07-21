@@ -16,7 +16,7 @@
 <div style="font-family: 'Roboto', sans-serif;">
 <nav class="navbar navbar-expand-lg bg-info">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">User Management</a>
+    <a class="navbar-brand" href="#">User </a>
     </div>
 </nav>
 <section>
