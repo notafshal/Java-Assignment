@@ -3,7 +3,6 @@ package com.internsaathi.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Base64;
-import java.util.Base64.Decoder;
 import java.util.Base64.Encoder;
 
 import javax.servlet.RequestDispatcher;
@@ -40,9 +39,8 @@ public class LoginServlet extends HttpServlet {
 			
 				response.sendRedirect("loginsuccess.jsp");
 			}else {
-				out.print("<h4> Ivalid Email or Password encoded</h4>"+encodeed);
-				out.print(encodeed);
-out.println(email);
+				out.print("<h4> Invalid Email or Password encoded</h4>");
+				
 				RequestDispatcher rd =request.getRequestDispatcher("login.jsp");
 				rd.include(request, response);
 			}
