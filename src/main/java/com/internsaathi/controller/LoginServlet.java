@@ -2,6 +2,8 @@ package com.internsaathi.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Base64;
+import java.util.Base64.Decoder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +19,7 @@ import com.internsaathi.model.Datafile;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        private LoginDao loginDao= new LoginDao();
-    
+       
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email =request.getParameter("email");
 		String password = request.getParameter("password");
@@ -27,6 +29,8 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter out =response.getWriter();
 		try {
 			if(loginDao.validate(datafile)) {
+				Decoder decoder=Base64.getDecoder();
+				byte[] bytes = decoder.decode(password);
 				response.sendRedirect("loginsuccess.jsp");
 			}else {
 				out.print("<h4> Invalid Email or Password</h4>");

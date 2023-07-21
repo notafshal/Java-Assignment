@@ -10,14 +10,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <title>Login Page</title>
 </head>
+
 <body>
+
 <div style="font-family: 'Roboto', sans-serif;">
 <nav class="navbar navbar-expand-lg bg-info">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">User Management</a>
-    </button>
     </div>
-  </div>
 </nav>
 <section>
 <div class = "container mt-5 pt-5">
@@ -36,7 +36,7 @@
 
 <input type ="email" name="email" class="form-control ny-4 py-2" placeholder="Your Email" required/><br/>
 
-<input type ="password" name="password" class="form-control ny-4 py-2" placeholder="Your Email" required/><br/>
+<input type ="password" name="password" class="form-control ny-4 py-2" placeholder="Password" required/><br/>
 <div class="text-center mt-3" >
 <button class="btn btn-primary my-2 px-4 py-2.5 rounded-pill" type= "submit">Login</button><br/>
 <a href = "register.jsp" class="nav-link my-3 text-primary">Create a account ?</a></div>

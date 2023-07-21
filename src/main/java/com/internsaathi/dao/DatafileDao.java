@@ -27,7 +27,6 @@ public int registerInfo(Datafile save) throws Exception{
 		
 		PreparedStatement preparedStatement = con.prepareStatement(INSERT_USERS_SQL)){
 
-
 	    preparedStatement.setString(1, save.getName());
 	    preparedStatement.setString(2, save.getEmail());
 	    preparedStatement.setString(3, save.getPassword());

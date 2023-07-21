@@ -2,6 +2,7 @@ package com.internsaathi.controller;
 
 import java.io.IOException;
 import java.util.Base64;
+import java.util.Base64.Encoder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,13 +27,15 @@ public class RegisterServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String contact = request.getParameter("contact");
-		String encryptedPassword =encryptPassword(password);
+		
+		Encoder encoder = Base64.getEncoder();
+		String encodeed=encoder.encodeToString(password.getBytes());
 		
 		Datafile save = new Datafile();
 	
 		save.setName(name);
 		save.setEmail(email);
-		save.setPassword(encryptedPassword);
+		save.setPassword(encodeed);
 		save.setContact(contact);
 		
 		
@@ -44,10 +47,6 @@ public class RegisterServlet extends HttpServlet {
 		  RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 	      dispatcher.forward(request, response);
 	}
-	private static String encryptPassword(String password) {
-	       byte[] encodedBytes = Base64.getEncoder().encode(password.getBytes());
-	        return new String(encodedBytes);
-	    }
 }
 
 

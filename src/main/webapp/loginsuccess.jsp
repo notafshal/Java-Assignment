@@ -12,10 +12,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <title>HomePage</title>
 </head>
+<% response.setHeader("Cache-Contorl","no-cache, no-store, must-revalidate");
+
+%>
 <body class="bg-info-subtle" style="font-family: 'Roboto', sans-serif;">
 <nav class="navbar navbar-expand-lg bg-info">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">User Management</a>
+    <a class="navbar-brand" href="#">User </a>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
